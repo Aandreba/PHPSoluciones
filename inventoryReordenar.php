@@ -7,7 +7,7 @@ function add ($item) {
 }
 
 // Bacia el inventario
-function clear ($items) : void {
+function clear ($items) {
     $items = array_fill(0, count($items), array_fill(0, count($items[0]), null));
 }
 
@@ -20,7 +20,7 @@ function reshape ($items) {
         for ($j=0;$j<count($items[$i]);$j++) {
             $item = $items[$i][$j];
             if ($item == null) {
-                return;
+                continue; // Si este item esta vacio, passa al siguiente
             }
     
             $type = get_class($item); // Obtiene el nombre de la classe principal del objecto
